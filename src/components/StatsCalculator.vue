@@ -11,6 +11,9 @@
         v-on:decreaseStat="decreaseStat">
       </StatBlock>
     </div>
+    <div>
+      <button v-on:click="reset()">Reset</button>
+    </div>
   </div>
 </template>
 
@@ -39,6 +42,9 @@ export default {
       let statValue = this.stats[key];
       this.stats[key] = statValue > 18  ? statValue -1 : statValue - 2;
     },
+    reset() {
+      Object.keys(this.stats).map(x => this.stats[x] = 10);
+    }
   },
   components: {
     StatBlock
